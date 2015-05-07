@@ -13,14 +13,14 @@ clean:
 	docker rmi -f $(docker images -f "dangling=true" -q)
 
 debug:
-	docker run -it --rm -e "GOOGLE_PLACES_API_KEY=$(GOOGLE_PLACES_API_KEY)" --entrypoint /bin/bash $(IMAGE_NAME):$(IMAGE_VERSION)
+	docker run -it --rm -e "GOOGLE_PLACES_API_KEY=$(GOOGLE_PLACES_API_KEY)" --entrypoint /bin/bash $(IMAGE_NAME):latest
 
 # deploy:
 # 	docker push $(IMAGE_NAME):$(IMAGE_VERSION)
 # 	docker push $(IMAGE_NAME):latest
 
 run:
-	docker run -it --rm -e "GOOGLE_PLACES_API_KEY=$(GOOGLE_PLACES_API_KEY)" $(IMAGE_NAME):$(IMAGE_VERSION)
+	docker run -it --rm -e "GOOGLE_PLACES_API_KEY=$(GOOGLE_PLACES_API_KEY)" $(IMAGE_NAME):latest
 
 # ..
 
