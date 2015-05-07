@@ -13,4 +13,4 @@ A civic app for finding whats near me
 
 1. [install Docker](https://docs.docker.com/installation/)
 2. `make build`
-3. `make run`
+3. `make run GOOGLE_PLACES_API_KEY=supersecretkey`
