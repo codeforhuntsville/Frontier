@@ -6,5 +6,5 @@ A civic app for finding whats near me
 
 1. [install Node.js](https://nodejs.org/download/)
 2. [clone the repo](https://help.github.com/articles/fetching-a-remote/)
-3. `npm install` to install the project dependencies
+3. `npm install` to install the project dependencies (dependency modules : `body-parser`, `compression`, `serve-static`, `request`, `config`, `ngrok`, `ejs`)
 4. `npm start` to start the server
