@@ -21,7 +21,8 @@
   var $status = document.getElementById('status');
 
   if (!navigator.geolocation) {
-    $status.innerHTML = 'gelocation is not supported on this platform';
+    $status.innerHTML = 'geolocation is not supported on this platform';
+    return;
   }
 
   $status.innerHTML = 'retrieving your location...';

@@ -6,7 +6,7 @@ var port = config.get('port');
 server.listen(port, function () {
   console.log('listening on port ' + port);
 
-  if (process.env.NODE_ENV === 'debug') {
+  if (process.env.NODE_ENV === 'development') {
     require('ngrok').connect(port, function (err, url) {
       if (err) {
         console.error('ngrok error', err);

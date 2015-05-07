@@ -5,8 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=debug node index.js",
-    "start-prod": "node index.js",
+    "start": "NODE_ENV=development node index.js",
+    "start-prod": "NODE_ENV=production node index.js",
     "postinstall": "bower install",
     "lint": "jshint . && jscs ."
   },
