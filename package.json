@@ -1,0 +1,25 @@
+{
+  "name": "Frontier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "bower install",
+    "lint": "jshint . && jscs ."
+  },
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.4.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "compression": "^1.4.3",
+    "config": "^1.13.0",
+    "cors": "^2.6.0",
+    "express": "^4.12.3",
+    "serve-static": "^1.9.2"
+  }
+}

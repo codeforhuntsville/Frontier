@@ -1,0 +1,10 @@
+{
+  "node": true,
+  "latedef": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "browser": true,
+  "debug": true,
+  "newcap": false
+}
