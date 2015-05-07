@@ -1,5 +1,4 @@
 GIT_HASH=`git rev-parse --short HEAD`
-GOOGLE_PLACES_API_KEY=
 IMAGE_NAME=codeforhuntsville/frontier
 IMAGE_VERSION=$(GIT_HASH)
 
