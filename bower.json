@@ -9,5 +9,6 @@
     "app/bower_components"
   ],
   "dependencies": {
+    "fetch": "~0.8.1"
   }
 }
