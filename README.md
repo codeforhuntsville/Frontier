@@ -1,7 +1,9 @@
 [![Stories in Ready](https://badge.waffle.io/codeforhuntsville/Frontier.png?label=ready&title=Ready)](https://waffle.io/codeforhuntsville/Frontier)
 
 # Frontier
-A civic app for finding whats near me
+Frontier is an app that lets you give it your location and then returns a list of accessible resources nearby. For example, it might tell you the nearest open restaurants, the nearest open gas stations, the nearest public wifi hotspots, the nearest public restrooms, or the nearest open towing/mechanic shops. 
+
+We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable on any device.
 
 # License
 [MIT](/LICENSE.txt)
