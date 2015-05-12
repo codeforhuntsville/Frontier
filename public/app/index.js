@@ -2,20 +2,17 @@
   /* global fetch: false */
   'use strict';
 
-  function getJson(response) {
-    return response.json();
-  }
-
-  function getStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-      return response;
-    }
-    throw new Error(response.statusText);
-  }
-
   function getRestaurants(coords) {
     var fetchUrl = '/restaurants?latitude=' + coords.latitude + '&longitude=' + coords.longitude;
-    return fetch(fetchUrl);
+    return fetch(fetchUrl)
+      .then(function(response) {
+        return response.json();
+      }).then(function(response) {
+        if (response.statusCode >= 200 && response.statusCode < 300) {
+          return response;
+        }
+        throw new Error(response.description);
+      });
   }
 
   var $status = document.getElementById('status');
@@ -31,8 +28,6 @@
     console.log('Geolocation position', position);
 
     getRestaurants(position.coords)
-      .then(getStatus)
-      .then(getJson)
       .then(function (restaurants) {
         $status.innerHTML = restaurants.map(function (r) {
           return r.name + '<br />';
