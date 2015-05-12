@@ -6,12 +6,15 @@
     var fetchUrl = '/restaurants?latitude=' + coords.latitude + '&longitude=' + coords.longitude;
     return fetch(fetchUrl)
       .then(function(response) {
-        return response.json();
-      }).then(function(response) {
-        if (response.statusCode >= 200 && response.statusCode < 300) {
-          return response;
+        // handle any errors
+        if (!response.ok) {
+          return response.json().then(function (errorBody) {
+            throw new Error(errorBody.description || 'An error occurred while fetching restaurants');
+          });
         }
-        throw new Error(response.description);
+
+        // no errors, parse response json
+        return response.json();
       });
   }
 
