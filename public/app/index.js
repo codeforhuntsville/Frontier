@@ -32,6 +32,11 @@
 
     getRestaurants(position.coords)
       .then(function (restaurants) {
+        if (!Array.isArray(restaurants) || !restaurants.length) {
+          $status.innerHTML = 'No restaurants found in your area.';
+          return;
+        }
+
         $status.innerHTML = restaurants.map(function (r) {
           return r.name + '<br />';
         }).join('');
