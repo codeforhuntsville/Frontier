@@ -19,6 +19,10 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
 
 #Docker
 
-1. [install Docker](https://docs.docker.com/installation/)
+1. [install Docker](https://docs.docker.com/installation/) by following the instructions for your platform.
+  * Possible additional Ubuntu steps:
+    * Make sure the docker service is running `sudo service docker start`
+    * Make sure that your user is in the docker group by inspecting `groups`
+    * If not in group, then `sudo usermod -aG docker <USERNAME>`
 2. `make build`
 3. `make run GOOGLE_PLACES_API_KEY=supersecretkey`
