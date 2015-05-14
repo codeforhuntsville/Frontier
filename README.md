@@ -14,7 +14,7 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
 
 1. [install Node.js](https://nodejs.org/download/)
 2. [clone the repo](https://help.github.com/articles/fetching-a-remote/)
-3. `npm install` to install the project dependencies (dependency modules : `body-parser`, `compression`, `serve-static`, `request`, `config`, `ngrok`, `ejs`)
+3. `npm install` to install the project dependencies (dependency modules : `body-parser`, `compression`, `serve-static`, `request`, `config`, `ngrok`, `ejs`, `bower`)
 4. `npm start` to start the server
 
 #Docker
