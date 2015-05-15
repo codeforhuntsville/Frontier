@@ -12,19 +12,40 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
 # License
 [MIT](/LICENSE.txt)
 
-#Setup
+#Setup using a Virtual Machine
 
-1. [install Node.js](https://nodejs.org/download/)
-2. [clone the repo](https://help.github.com/articles/fetching-a-remote/)
-3. `npm install` to install the project dependencies (dependency modules : `body-parser`, `compression`, `serve-static`, `request`, `config`, `ngrok`, `ejs`, `bower`)
-4. `npm start` to start the server
+1. [Install VirtualBox](https://www.virtualbox.org/)
+1. [Download Ubuntu ISO](http://www.ubuntu.com/) (or your favorite distro . These instructions are Debian-based.)
+1. Live boot Ubuntu with Virtual Box. After installation, install these packages via terminal:
+  * `sudo apt-get update`
+  * `sudo apt-get install git`
+  * `sudo apt-get install nodejs`
+  * `sudo ln -s /usr/bin/nodejs /usr/bin/node`
+  * `sudo apt-get install npm`
+  * `sudo apt-get install docker.io`
+1. Clone repo, install dependencies:
+  *  `git clone https://github.com/codeforhuntsville/Frontier`
+  * `cd Frontier`
+  * `npm install`
+1. Setup docker
+  * `sudo usermod -aG docker <your Linux username>`
+  * Reboot the server
+  * Log back in.
+  * `docker build -t "frontier" .` (Lowercase, and notice the dot at end)
+  * `make build`
+1. Run the server:
+  * `make run GOOGLE_PLACES_API_KEY=supersecretkey`
 
-#Docker
+The server will start locally and on ngrok. The restaurants will not load because you do not have a Google Places API key yet. That key will replace `supersecretkey`. To stop the server, use Ctrl+C.
 
-1. [install Docker](https://docs.docker.com/installation/) by following the instructions for your platform.
-  * Possible additional Ubuntu steps:
-    * Make sure the docker service is running `sudo service docker start`
-    * Make sure that your user is in the docker group by inspecting `groups`
-    * If not in group, then `sudo usermod -aG docker <USERNAME>`
-2. `make build`
-3. `make run GOOGLE_PLACES_API_KEY=supersecretkey`
+
+#Google Places Key
+
+1. Go to https://code.google.com/apis/console/ to register for an API key.
+1. Create a new project, (e.g. Frontier).
+1. Select APIs in the left.
+1. Register for "Google Places API Web Service" key (click the MORE link under Maps).
+1. Enable the API.
+1. Go to Credentials in the left.
+1. Create a new Public Access browser key. Don't worry about IP restrictions (this is for development).
+1. Your key will be generated. Use that key in place of `supersecretkey` each time you `make run GOOGLE_PLACES_API_KEY=supersecretkey`
