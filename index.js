@@ -1,5 +1,5 @@
 'use strict';
-var server = require('./lib/server')();
+var server = require('./lib/server/')();
 var config = require('config');
 var port = config.get('port');
 
