@@ -30,7 +30,6 @@ module.exports = {
       summary.isValid = false;
     }
 
-    // All checks completed successfully.  Config appears valid!
     return summary;
   }
 };
