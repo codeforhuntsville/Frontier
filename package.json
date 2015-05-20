@@ -5,6 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "build": "webpack",
     "start": "NODE_ENV=development webpack && NODE_ENV=development node index.js",
     "start-prod": "NODE_ENV=production webpack && NODE_ENV=production node index.js",
     "lint": "jshint . && jscs ."
