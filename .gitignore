@@ -1,6 +1,7 @@
 node_modules
 .DS_Store
-public/bower_components
+public/build/**
+!public/build/.gitkeep
 *.log
 config/local.*
 .idea
