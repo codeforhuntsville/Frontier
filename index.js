@@ -1,7 +1,6 @@
 'use strict';
 var server = require('./lib/server/')();
 var config = require('config');
-var port = config.get('port');
 
 function ngrokIsAvailable() {
   try {
@@ -12,6 +11,18 @@ function ngrokIsAvailable() {
   }
 }
 
+/**
+ * Make sure to configuration is valid before attempting to start the server.
+ */
+if (!config.isValid()) {
+  config.getConfigValidityReport().errors.forEach(function(error){
+    console.log(error);
+  });
+  console.error("\n\nInvalid configuration detected.  Aborted server startup.\n");
+  return;
+}
+
+var port = config.get("port") || 8080;
 server.listen(port, function () {
   console.log('listening on port ' + port);
 
@@ -26,3 +37,5 @@ server.listen(port, function () {
     });
   }
 });
+
+
