@@ -19,5 +19,9 @@ RUN npm install
 
 # ..
 
+RUN npm run build
+
+# ..
+
 EXPOSE 8080
 ENTRYPOINT ["node", "index.js"]
