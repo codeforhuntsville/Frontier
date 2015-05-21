@@ -7,7 +7,7 @@ Frontier is an app that lets you give it your location and then returns a list o
 ## Mockups
 We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable on any device.
 
-<img src="mockups/mobilemain.jpg" height="450">
+<img src="http://i.imgur.com/KzCHSbC.jpg" height="450">
 
 # License
 [MIT](/LICENSE.txt)
