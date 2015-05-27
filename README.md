@@ -9,6 +9,11 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
 
 <img src="http://i.imgur.com/KzCHSbC.jpg" height="450">
 
+V1.1 wireframes made by Abbie: https://frcv.net/files/mockups/Wireframe-OnTheFly_V1.pdf
+V1.2 wireframes made by Chris: http://lrdy2r.axshare.com/
+
+Whiteboard photos: https://frcv.net/files/mockups/meetups-whiteboard/
+
 # License
 [MIT](/LICENSE.txt)
 
