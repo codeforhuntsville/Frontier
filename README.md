@@ -23,10 +23,11 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
  
 ## Tech Stack
 
-* We're building our back-end in Node.js and our front-end in React. At the moment, we're not using a database because we're pulling data into Frontier dynamically via various public APIs.
+We're building our back-end in Node.js and our front-end in React. At the moment, we're not using a database because we're pulling data into Frontier dynamically via various public APIs.
 
 ## Front-End
-* We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be converting to React. [Check out the front-end code in Codepen](http://codepen.io/chadxz/full/waobOw/).
+
+We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be converting to React. [Check out the front-end code in Codepen](http://codepen.io/chadxz/full/waobOw/).
 
 ## License
 [MIT](/LICENSE.txt)
