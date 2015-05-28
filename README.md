@@ -3,6 +3,12 @@
 # Frontier
 Frontier is an app that lets you give it your location and then returns a list of accessible resources nearby. For example, it might tell you the nearest open restaurants, the nearest open gas stations, the nearest public wifi hotspots, the nearest public restrooms, or the nearest open towing/mechanic shops.
 
+## Tools/Resources
+
+* We use Waffle to project-manage Frontier. [Create/view tasks here](https://waffle.io/codeforhuntsville/Frontier).
+* We chat about Frontier/Code for Huntsville on Slack. [Join Slack here](http://tech256.com).
+* We've made a big list of layers/APIs. [View them in our Wiki](https://github.com/codeforhuntsville/Frontier/wiki/Masterlist-of-layers-and-public-APIs).
+* We meet every Wednesday night to work on Frontier. [Meetups are organized here](http://www.meetup.com/Hack-Huntsville).
 
 ## Mockups
 We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable on any device.
@@ -14,11 +20,18 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
 * [V1.1 wireframes made by Abbie](https://frcv.net/files/mockups/Wireframe-OnTheFly_V1.pdf)
 * [V1.2 wireframes made by Chris](http://lrdy2r.axshare.com/)
 * [Whiteboard photos from previous hack nights](https://frcv.net/files/mockups/meetups-whiteboard/) 
+ 
+## Tech Stack
 
-# License
+* We're building our back-end in Node.js and our front-end in React. At the moment, we're not using a database because we're pulling data into Frontier dynamically via various public APIs.
+
+## Front-End
+* We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be converting to React. [Check out the front-end code in Codepen](http://codepen.io/chadxz/full/waobOw/).
+
+## License
 [MIT](/LICENSE.txt)
 
-#Setup using a Virtual Machine
+## Setup using a Virtual Machine
 
 1. [Install VirtualBox](https://www.virtualbox.org/)
 1. [Download Ubuntu ISO](http://www.ubuntu.com/) (or your favorite distro . These instructions are Debian-based.)
@@ -44,8 +57,7 @@ We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable
 
 The server will start locally and on ngrok. The restaurants will not load because you do not have a Google Places API key yet. That key will replace `supersecretkey`. To stop the server, use Ctrl+C.
 
-
-#Google Places Key
+## Google Places Key
 
 1. Go to https://code.google.com/apis/console/ to register for an API key.
 1. Create a new project, (e.g. Frontier).
@@ -55,3 +67,8 @@ The server will start locally and on ngrok. The restaurants will not load becaus
 1. Go to Credentials in the left.
 1. Create a new Public Access browser key. Don't worry about IP restrictions (this is for development).
 1. Your key will be generated. Use that key in place of `supersecretkey` each time you `make run GOOGLE_PLACES_API_KEY=supersecretkey`
+
+## City of Huntsville APIs
+
+* [Here is the City's list of layers](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers), each of which provides a REST endpoint from which we can query data. 
+* [Here's an example of a URL where you might query data](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers/ParkLocations/MapServer/0/query).
