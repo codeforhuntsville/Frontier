@@ -76,12 +76,12 @@ This is the standard use case for deploying the server for general access on the
 * [Here is the City's list of layers](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers), each of which provides a REST endpoint from which we can query data. 
 * [Here's an example of a URL where you might query data](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers/ParkLocations/MapServer/0/query).
 
-# Developers
+## Developers
 
 Instead of building the server and launching the server via make run, an alternative method to start the server is:
 >export GOOGLE_PLACES_API_KEY=supersecretkey
 >cd Frontier
 >npm start
 
-This eliminates the required build step allowing for faster debug cycles.
+This eliminates having to build the whole docker image allowing for faster debug cycles.
 
