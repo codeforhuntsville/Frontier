@@ -58,6 +58,8 @@ We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be c
 
 The server will start locally and on ngrok. The restaurants will not load because you do not have a Google Places API key yet. That key will replace `supersecretkey`. To stop the server, use Ctrl+C.
 
+This is the standard use case for deploying the server for general access on the internet.  Developers see the Developers section below for launching the server for development and testing locally.
+
 ## Google Places Key
 
 1. Go to https://code.google.com/apis/console/ to register for an API key.
@@ -73,3 +75,13 @@ The server will start locally and on ngrok. The restaurants will not load becaus
 
 * [Here is the City's list of layers](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers), each of which provides a REST endpoint from which we can query data. 
 * [Here's an example of a URL where you might query data](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers/ParkLocations/MapServer/0/query).
+
+## Developers
+
+Instead of building the server and launching the server via make run, an alternative method to start the server is:
+>export GOOGLE_PLACES_API_KEY=supersecretkey
+>cd Frontier
+>npm start
+
+This eliminates having to build the whole docker image allowing for faster debug cycles.
+
