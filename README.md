@@ -27,7 +27,10 @@ We're building our back-end in Node.js and our front-end in React. At the moment
 
 ## Front-End
 
-We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be converting to React. [Check out the front-end code in Codepen](http://codepen.io/chadxz/full/waobOw/).
+We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be converting to React. 
+
+* [Home screen in Codepen](http://codepen.io/chadxz/full/waobOw/).
+* [List view screen in Codepen](http://codepen.io/chrisbeaman/full/waJjxq).
 
 ## License
 [MIT](/LICENSE.txt)
