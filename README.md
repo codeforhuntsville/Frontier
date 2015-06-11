@@ -31,6 +31,7 @@ We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be c
 
 * [Home screen in Codepen](http://codepen.io/chadxz/full/waobOw/).
 * [List view screen in Codepen](http://codepen.io/chrisbeaman/full/waJjxq).
+* [Map view screen in Codepen](http://codepen.io/syjulian/pen/WvOpZo).
 
 ## License
 [MIT](/LICENSE.txt)
