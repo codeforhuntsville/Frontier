@@ -1,90 +1,48 @@
 [![Stories in Ready](https://badge.waffle.io/codeforhuntsville/Frontier.png?label=ready&title=Ready)](https://waffle.io/codeforhuntsville/Frontier)
 
 # Frontier
-Frontier is an app that lets you give it your location and then returns a list of accessible resources nearby. For example, it might tell you the nearest open restaurants, the nearest open gas stations, the nearest public wifi hotspots, the nearest public restrooms, or the nearest open towing/mechanic shops.
 
-## Tools/Resources
+Frontier is an app that lets you give it your location and then returns a list of accessible resources nearby. For
+example, it might tell you the nearest open restaurants, the nearest open gas stations, the nearest public wifi
+hotspots, the nearest public restrooms, or the nearest open towing/mechanic shops.
 
-* We use Waffle to project-manage Frontier. [Create/view tasks here](https://waffle.io/codeforhuntsville/Frontier).
-* We chat about Frontier/Code for Huntsville on Slack. [Join Slack here](http://tech256.com).
-* We've made a big list of layers/APIs. [View them in our Wiki](https://github.com/codeforhuntsville/Frontier/wiki/Masterlist-of-layers-and-public-APIs).
-* We meet every Wednesday night to work on Frontier. [Meetups are organized here](http://www.meetup.com/Hack-Huntsville).
+## Tech
+This project is built using [node.js](https://nodejs.org/). It uses the [express](http://expressjs.com/) web application
+framework on the backend to serve the website and provide APIs for the website to access data. The frontend is built
+using [React](https://facebook.github.io/react/) & [Bootstrap](http://getbootstrap.com/). The frontend assets are
+compiled using the [Webpack](http://webpack.github.io/) module bundler and [Babel](https://babeljs.io/) compiler to
+allow the use of [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html) and next generation Javascript features.
 
-## Mockups
-We intend to build Frontier as a hybrid web/mobile HTML app so that it is usable on any device.
+## Setup
 
-<img src="http://i.imgur.com/KzCHSbC.jpg" height="450">
+1. [install node.js](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) on your computer
+1. [setup git](https://help.github.com/articles/set-up-git/) on your computer
+1. [clone this repository](https://help.github.com/articles/fetching-a-remote/): `git clone https://github.com/codeforhuntsville/Frontier.git`
+1. `npm install` in the cloned directory to install the required packages
+1. obtain a Google Places API Key (see instructions below)
+1. copy the file `config/default.js` to `config/local.js`, then fill in the `googlePlacesApiKey` property value with
+your key
+1. `npm start` to run the server
 
-### Wireframes
+#### Google Places API Key
+We use the [Google Places API](https://developers.google.com/places/) as a source for some of the data in Frontier. In
+order to make requests to the API, you must obtain an API key and configure Frontier to use it.
 
-* [V1.1 wireframes made by Abbie](https://frcv.net/files/mockups/Wireframe-OnTheFly_V1.pdf)
-* [V1.2 wireframes made by Chris](http://lrdy2r.axshare.com/)
-* [Whiteboard photos from previous hack nights](https://frcv.net/files/mockups/meetups-whiteboard/) 
- 
-## Tech Stack
+1. Navigate to the [Google Developers Console](https://console.developers.google.com)
+1. Create a new project, (e.g. "Frontier")
+1. Select APIs on the left
+1. Click "Google Places API Web Service" under the "Google Maps APIs" section
+1. Enable the API
+1. Go to "Credentials" on the left
+1. Create a new "Public API Access" "Server" key. Don't worry about IP restrictions for now
+1. Plug this key into the config in Frontier.
 
-We're building our back-end in Node.js and our front-end in React. At the moment, we're not using a database because we're pulling data into Frontier dynamically via various public APIs.
+## Join our community
 
-## Front-End
-
-We're building the front-end for Frontier in HTML/CSS/JS, which we'll later be converting to React. 
-
-* [Home screen in Codepen](http://codepen.io/chadxz/full/waobOw/).
-* [List view screen in Codepen](http://codepen.io/chrisbeaman/full/waJjxq).
+- We use Waffle to project-manage Frontier. [Create/view tasks here](https://waffle.io/codeforhuntsville/Frontier).
+- We chat about Frontier/Code for Huntsville on Slack. [Join Slack here](http://tech256.com).
+- We use the wiki to keep track of notes and resources. [View the Wiki](https://github.com/codeforhuntsville/Frontier/wiki/).
+- We meet every Wednesday night to work on Frontier. [Meetups are organized here](http://www.meetup.com/Hack-Huntsville).
 
 ## License
-[MIT](/LICENSE.txt)
-
-## Setup using a Virtual Machine
-
-1. [Install VirtualBox](https://www.virtualbox.org/)
-1. [Download Ubuntu ISO](http://www.ubuntu.com/) (or your favorite distro . These instructions are Debian-based.)
-1. Live boot Ubuntu with Virtual Box. After installation, install these packages via terminal:
-  * `sudo apt-get update`
-  * `sudo apt-get install git`
-  * `sudo apt-get install nodejs`
-  * `sudo ln -s /usr/bin/nodejs /usr/bin/node`
-  * `sudo apt-get install npm`
-  * `sudo apt-get install docker.io`
-1. Clone repo, install dependencies:
-  *  `git clone https://github.com/codeforhuntsville/Frontier`
-  * `cd Frontier`
-  * `npm install`
-1. Setup docker
-  * `sudo usermod -aG docker <your Linux username>`
-  * Reboot the server
-  * Log back in.
-  * `docker build -t "frontier" .` (Lowercase, and notice the dot at end)
-  * `make build`
-1. Run the server:
-  * `make run GOOGLE_PLACES_API_KEY=supersecretkey`
-
-The server will start locally and on ngrok. The restaurants will not load because you do not have a Google Places API key yet. That key will replace `supersecretkey`. To stop the server, use Ctrl+C.
-
-This is the standard use case for deploying the server for general access on the internet.  Developers see the Developers section below for launching the server for development and testing locally.
-
-## Google Places Key
-
-1. Go to https://code.google.com/apis/console/ to register for an API key.
-1. Create a new project, (e.g. Frontier).
-1. Select APIs in the left.
-1. Register for "Google Places API Web Service" key (click the MORE link under Maps).
-1. Enable the API.
-1. Go to Credentials in the left.
-1. Create a new Public Access browser key. Don't worry about IP restrictions (this is for development).
-1. Your key will be generated. Use that key in place of `supersecretkey` each time you `make run GOOGLE_PLACES_API_KEY=supersecretkey`
-
-## City of Huntsville APIs
-
-* [Here is the City's list of layers](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers), each of which provides a REST endpoint from which we can query data. 
-* [Here's an example of a URL where you might query data](http://maps.huntsvilleal.gov/arcgis/rest/services/Layers/ParkLocations/MapServer/0/query).
-
-## Developers
-
-Instead of building the server and launching the server via make run, an alternative method to start the server is:
->export GOOGLE_PLACES_API_KEY=supersecretkey
->cd Frontier
->npm start
-
-This eliminates having to build the whole docker image allowing for faster debug cycles.
-
+[MIT](LICENSE)
