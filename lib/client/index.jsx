@@ -3,12 +3,14 @@ import React from 'react';
 import Router from 'react-router';
 import { DefaultRoute, Route, RouteHandler } from 'react-router';
 import RestaurantList from './components/RestaurantList.jsx';
+import HomeView from './components/HomeView.jsx';
+
+React.initializeTouchEvents(true);
 
 class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h1>Frontier</h1>
         <RouteHandler />
       </div>
     );
@@ -17,7 +19,7 @@ class App extends React.Component {
 
 let routes = (
   <Route name="app" path="/" handler={App}>
-    <DefaultRoute handler={RestaurantList} />
+    <DefaultRoute handler={HomeView} />
   </Route>
 );
 

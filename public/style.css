@@ -1,0 +1,21 @@
+.slider {
+    width: 100%;
+}
+
+#categories i.fa {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    width: 54px;
+    height: 50px;
+    text-align: center;
+}
+
+body {
+    text-align: left;
+    background-color: #eee
+}
