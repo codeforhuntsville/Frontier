@@ -17,5 +17,6 @@
 
 body {
     text-align: left;
-    background-color: #eee
+    background-color: #eee;
+    cursor: pointer;
 }
