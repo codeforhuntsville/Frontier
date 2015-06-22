@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+var Geolocation = require('../util/Geolocation');
 
 export default class Location extends React.Component {
 
@@ -11,17 +12,18 @@ export default class Location extends React.Component {
   }
 
   handleClick() {
-    navigator.geolocation.getCurrentPosition(
+    this.setState({ location: 'Fetching location...', error: '' });
+
+    Geolocation.getCurrentPosition(
       geo => {
         const lat = geo.coords.latitude;
         const lon = geo.coords.longitude;
 
-        this.setState({ lat, lon, location: `${lat}, ${lon}`, error: '' });
+        this.setState({ lat, lon, location: `${lat.toFixed(4)}, ${lon.toFixed(4)}`, error: '' });
       },
       () => {
-        this.setState({ error: 'Could not get your location' });
-      }
-    )
+        this.setState({ location: null, lat: 0, lon: 0, error: 'Could not get your location' });
+      });
   }
 
   render() {
