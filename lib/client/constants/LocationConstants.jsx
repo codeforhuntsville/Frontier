@@ -1,4 +1,4 @@
-import keyMirror from 'keymirror';
+import keyMirror from 'react/lib/keyMirror.js';
 
 
 var LocationConstants = keyMirror({

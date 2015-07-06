@@ -5,24 +5,10 @@ import AppDispatcher from '../dispatcher/AppDispatcher.jsx';
 import LocationConstants from '../constants/LocationConstants.jsx';
 
 var _location = {
-  lat: 0,
-  lon: 0,
+  lat: null,
+  lon: null,
+  locationString: '',
   error: ''
-};
-
-var update = function() {
-  navigator.geolocation.getCurrentPosition(
-    geo => {
-      _location.lat = geo.coords.latitude;
-      _location.lon = geo.coords.longitude;
-      _location.error = '';
-    },
-    () => {
-      _location.lat = null;
-      _location.lon = null;
-      _location.error = 'Could not get your location';
-    }
-  );
 };
 
 var CHANGE_EVENT = 'change';
@@ -45,17 +31,31 @@ var LocationStore = Object.assign({}, EventEmitter.prototype, {
   }
 });
 
-AppDispatcher.register(function(action) {
+AppDispatcher.register(function (action) {
 
-  switch(action.actionType) {
+  switch (action.actionType) {
     case LocationConstants.LOCATION_UPDATE:
-      update().then(
-        LocationStore.emitChange(),
-        LocationStore.emitChange()
+      navigator.geolocation.getCurrentPosition(
+          geo => {
+          _location.lat = geo.coords.latitude;
+          _location.lon = geo.coords.longitude;
+          _location.locationString = `${_location.lat}, ${_location.lon}`;
+          _location.error = '';
+          LocationStore.emitChange();
+
+        },
+        () => {
+          _location.lat = null;
+          _location.lon = null;
+          _location.locationString = '';
+          _location.error = 'Could not get your location';
+          LocationStore.emitChange();
+        }
       );
 
     default:
-  };
+  }
+  ;
 
 });
 
