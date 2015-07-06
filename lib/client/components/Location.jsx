@@ -1,27 +1,34 @@
 'use strict';
 import React from 'react';
+import LocationAction from '../actions/LocationAction.jsx';
+import LocationStore from '../stores/LocationStore.jsx';
+
+var getLocationState = function() {
+  return LocationStore.getLocation();
+};
 
 export default class Location extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { location: null, lat: 0, lon: 0, error: '' };
-    this.handleClick = this.handleClick.bind(this);
+    this.state = getLocationState();
   }
 
   handleClick() {
-    navigator.geolocation.getCurrentPosition(
-      geo => {
-        const lat = geo.coords.latitude;
-        const lon = geo.coords.longitude;
+    LocationAction.update();
+  }
 
-        this.setState({ lat, lon, location: `${lat}, ${lon}`, error: '' });
-      },
-      () => {
-        this.setState({ error: 'Could not get your location' });
-      }
-    )
+  componentDidMount() {
+    LocationStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    LocationStore.removeChangeListener(this._onChange);
+  }
+
+  _onChange() {
+    this.setState(getLocationState());
   }
 
   render() {
