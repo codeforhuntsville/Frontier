@@ -1,63 +1,47 @@
 'use strict';
 
-import { EventEmitter }from 'events';
-import AppDispatcher from '../dispatcher/AppDispatcher.jsx';
-import LocationConstants from '../constants/LocationConstants.jsx';
+import alt from '../alt.js';
+import LocationActions from '../actions/LocationActions.jsx';
 
-var _location = {
-  lat: null,
-  lon: null,
-  locationString: '',
-  error: ''
-};
+class LocationStore {
+  constructor() {
+    this.location = {
+      lat: null,
+      lon: null,
+      locationString: '',
+      error: ''
+    };
 
-var CHANGE_EVENT = 'change';
-
-var LocationStore = Object.assign({}, EventEmitter.prototype, {
-  emitChange() {
-    this.emit(CHANGE_EVENT);
-  },
-
-  addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback);
-  },
-
-  removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
-  },
-
-  getLocation() {
-    return _location;
+    this.bindListeners({
+      handleUpdate: LocationActions.LOCATION_UPDATE
+    });
   }
-});
 
-AppDispatcher.register(function (action) {
-
-  switch (action.actionType) {
-    case LocationConstants.LOCATION_UPDATE:
-      navigator.geolocation.getCurrentPosition(
-          geo => {
-          _location.lat = geo.coords.latitude;
-          _location.lon = geo.coords.longitude;
-          _location.locationString = `${_location.lat}, ${_location.lon}`;
-          _location.error = '';
-          LocationStore.emitChange();
-
-        },
-        () => {
-          _location.lat = null;
-          _location.lon = null;
-          _location.locationString = '';
-          _location.error = 'Could not get your location';
-          LocationStore.emitChange();
-        }
-      );
-
-    default:
+  handleUpdate() {
+    navigator.geolocation.getCurrentPosition(
+        geo => {
+        var lat = geo.coords.latitude;
+        var lon = geo.coords.longitude;
+        this.location = {
+          lat,
+          lon,
+          locationString: `${lat}, ${lon}`,
+          error: ''
+        };
+        this.emitChange();
+      },
+      () => {
+        this.location = {
+          lat: null,
+          lon: null,
+          locationString: '',
+          error: 'Could not get your location'
+        };
+        this.emitChange();
+      }
+    );
+    return false;
   }
-  ;
+}
 
-});
-
-export default LocationStore;
-
+export default alt.createStore(LocationStore, 'LocationStore');

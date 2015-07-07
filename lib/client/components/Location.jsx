@@ -1,10 +1,10 @@
 'use strict';
 import React from 'react';
-import LocationAction from '../actions/LocationAction.jsx';
+import LocationActions from '../actions/LocationActions.jsx';
 import LocationStore from '../stores/LocationStore.jsx';
 
 var getLocationState = function () {
-  return LocationStore.getLocation();
+  return LocationStore.getState();
 };
 
 export default class Location extends React.Component {
@@ -17,15 +17,15 @@ export default class Location extends React.Component {
   }
 
   handleClick() {
-    LocationAction.update();
+    LocationActions.locationUpdate();
   }
 
   componentDidMount() {
-    LocationStore.addChangeListener(this._onChange);
+    LocationStore.listen(this._onChange);
   }
 
   componentWillUnmount() {
-    LocationStore.removeChangeListener(this._onChange);
+    LocationStore.unlisten(this._onChange);
   }
 
   _onChange() {
@@ -37,11 +37,12 @@ export default class Location extends React.Component {
       <div className="col-xs-12">
         <input disabled style={{ width: '90%', display: 'inline-block' }}
                className="form-control"
-               placeholder="Enter an address..." value={ this.state.locationString }/>
+               placeholder="Enter an address..."
+               value={ this.state.location.locationString }/>
         <i
           style={{ height: '32px', display: 'inline-block', verticalAlign: 'bottom', marginLeft: '5px' }}
           className="fa fa-compass fa-2x" onClick={ this.handleClick }></i>
-        { this.state.error ? <p>{ this.state.error }</p> : null }
+        { this.state.error ? <p>{ this.state.location.error }</p> : null }
       </div>
     );
   }
