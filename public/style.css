@@ -15,6 +15,10 @@
     text-align: center;
 }
 
+#categories i.fa.selected {
+  background-color: red;
+}
+
 body {
     text-align: left;
     background-color: #eee;
