@@ -1,4 +1,8 @@
 'use strict';
+
+// polyfill required for ES6 Array.find()
+require('babel-core/polyfill');
+
 import React from 'react';
 import Router from 'react-router';
 import { DefaultRoute, Route, RouteHandler } from 'react-router';
@@ -23,6 +27,6 @@ let routes = (
   </Route>
 );
 
-Router.run(routes, (Handler) => {
+Router.run(routes, Router.HistoryLocation, (Handler) => {
   React.render(<Handler />, document.getElementById('outlet'));
 });

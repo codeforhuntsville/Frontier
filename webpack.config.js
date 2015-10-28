@@ -17,7 +17,7 @@ var config = {
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   plugins: [
     // don't emit a broken build when errors occur
     new webpack.NoErrorsPlugin(),
