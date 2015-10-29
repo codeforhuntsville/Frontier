@@ -1,0 +1,21 @@
+{
+    "results": [
+        {
+            "name": "Cotton Row",
+            "distance": "0.2",
+            "address": {
+                "street": "6275 University Drive NW",
+                "city": "Huntsville",
+                "state": "Alabama"
+            },
+            "telephone": "(256) 922-0189"
+            "info": [
+                "Open now til 11pm",
+                "Accepts Reservations",
+                "Health Rating: 4 / 5",
+                "Yelp Rating: 5 / 5",
+                "Price: $$$$"
+            ]
+        }
+    ]
+}

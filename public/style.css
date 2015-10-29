@@ -24,3 +24,176 @@ body {
     background-color: #eee;
     cursor: pointer;
 }
+
+.slider {
+  width: 100%;
+}
+
+#categories i.fa {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 0.4em;
+  border-radius: 4px;
+  background-color: white;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  text-align: center;
+  width: 2em;
+  height: 2em;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+body {
+  text-align: left;
+  background-color: #eee
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #000;
+  padding: 1em 0;
+  overflow: hidden;
+}
+
+header a {
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 1px #000;
+  padding: 0.5em;
+  display: block;
+}
+
+header a.search {
+  float: left;
+  margin-left: 1em;
+}
+
+header a.feedback {
+  float: right;
+  margin-right: 1em;
+}
+
+header i {
+  color: #000;
+  font-size: 1.2em;
+}
+
+header H1 {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.list-title {
+  border-bottom: 1px solid #ccc;
+}
+
+.list-title i {
+  font-size: 2em;
+  display: block;
+  float: left;
+  margin-right: 0.5em;
+}
+
+.list-view ul {
+  padding-left: 0;
+}
+
+.list-view ul li {
+  border: none;
+  overflow: hidden;
+}
+
+.list-view ul li ul li {
+  padding: .8em 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-view ul li .left {
+  float: left;
+}
+
+.list-view ul li .left H3 {
+  margin: 0 0 0.1em;
+}
+
+.list-view ul li .left p {
+  margin: 0;
+}
+
+.list-view ul li .right {
+  float: right;
+}
+
+.list-view ul li .right a {
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 1px #000;
+  padding: 0.5em;
+  display: block;
+  background: #fff;
+}
+
+.list-view ul li .right a i {
+  color: #000;
+  font-size: 2em;
+}
+
+.list-view .modal-title {
+  line-height: 1;
+}
+
+.list-view .modal-title i {
+  float: left;
+  display: block;
+  margin-right: 0.5em;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.list-view .modal-header button.close {
+  opacity: 1;
+  font-size: 2em;
+}
+
+.list-view .modal-body li {
+  border: none;
+  padding: 0;
+  overflow: visible;
+}
+
+.list-view .modal-body ul.bullets {
+  list-style-type: disc;
+  padding: 1em 0 0 1.2em;
+}
+
+.list-view .modal-body ul.bullets li span {
+  margin-right: 0.3em;
+}
+
+.list-view .modal-body ul.bullets .modal-icons {
+  display: inline-block;
+}
+
+.list-view .modal-body ul.bullets .modal-icons li {
+  display: inline-block;
+}
+
+.list-view .modal-body ul.bullets .modal-icons li i {
+  font-size: 1.2em;
+}
+
+.list-view .modal-body ul.bullets .modal-icons.dollars li i {
+  font-size: 1em;
+}
+
+.list-view .modal-footer button {
+  float: right;
+  width: 49%;
+  margin: 0;
+}
+
+.list-view .modal-footer button:first-child {
+  float: left;
+}
